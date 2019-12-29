@@ -77,11 +77,11 @@ public class FindMyPhoneSettingsFragment extends PluginSettingsFragment {
          */
 
         if (preference.hasKey() && preference.getKey().equals(preferenceKeyRingtone)) {
-            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false);
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI, Settings.System.DEFAULT_NOTIFICATION_URI);
+            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER)
+                .putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALL)
+                .putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true)
+                .putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false)
+                .putExtra(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI, Settings.System.DEFAULT_RINGTONE_URI);
 
             String existingValue = sharedPreferences.getString(preferenceKeyRingtone, null);
             if (existingValue != null) {
