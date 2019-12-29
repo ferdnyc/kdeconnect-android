@@ -22,6 +22,7 @@ package org.kde.kdeconnect.Plugins.FindMyPhonePlugin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 
 import org.kde.kdeconnect.Helpers.DeviceHelper;
 import org.kde.kdeconnect.NetworkPacket;
@@ -52,6 +53,12 @@ public class FindMyPhonePlugin extends Plugin {
     @Override
     public String getDescription() {
         return context.getString(R.string.findmyphone_description);
+    }
+
+    // Plugin requires API version 21 or higher
+    @Override
+    public int getMinSdk() {
+        return Build.VERSION_CODES.LOLLIPOP;
     }
 
     @Override

@@ -73,6 +73,7 @@ public class FindMyPhoneActivity extends Activity implements MediaPlayer.OnPrepa
         // otherwise the activity will become active again
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +125,7 @@ public class FindMyPhoneActivity extends Activity implements MediaPlayer.OnPrepa
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setAudioAttributes(audioAttributes);
 
-            // Prevent screen/CPU sleep during playback -- requries WAKE_LOCK permission!!
+            // Prevent screen/CPU sleep during playback -- requires WAKE_LOCK permission!!
             mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
 
             mediaPlayer.setDataSource(this, ringtone);
